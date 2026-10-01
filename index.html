@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f4f5ef" />
+    <title>Spørsmål for spørsmål</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="questions.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="topbar">
+        <a class="wordmark" href="./" aria-label="Spørsmål for spørsmål, startside">
+          <span class="wordmark-mark" aria-hidden="true">?</span>
+          <span>spørsmål<br />for spørsmål</span>
+        </a>
+        <div class="topic-tag"><span class="topic-dot" aria-hidden="true"></span>HICO / S3000L</div>
+      </header>
+
+      <section class="quiz" aria-labelledby="question-title">
+        <div class="quiz-meta">
+          <span class="eyebrow" id="question-count">SPØRSMÅL 001 / 100</span>
+          <span class="score-label">Riktige <strong id="score">0</strong></span>
+        </div>
+
+        <div class="progress-track" role="progressbar" aria-label="Framdrift" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <span class="progress-fill" id="progress-fill"></span>
+        </div>
+
+        <div class="question-content" id="question-content">
+          <p class="question-kicker" id="question-category">Solsystemet</p>
+          <h1 id="question-title" tabindex="-1">Laster spørsmål …</h1>
+          <div class="answers" id="answers" role="group" aria-labelledby="question-title"></div>
+          <div class="feedback" id="feedback" aria-live="polite" hidden>
+            <span class="feedback-icon" id="feedback-icon" aria-hidden="true"></span>
+            <div>
+              <p class="feedback-title" id="feedback-title"></p>
+              <p class="feedback-copy" id="feedback-copy"></p>
+            </div>
+          </div>
+          <div class="question-footer">
+            <span class="keyboard-hint"><kbd>1</kbd>–<kbd>4</kbd> velg svar</span>
+            <button class="next-button" id="next-button" type="button" hidden>
+              <span id="next-label">Neste spørsmål</span><span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+
+        <section class="results" id="results" aria-live="polite" hidden>
+          <p class="question-kicker">RUNDE FERDIG</p>
+          <h1 id="result-title">Bra jobbet.</h1>
+          <p class="result-copy" id="result-copy"></p>
+          <div class="result-score"><strong id="final-score">0</strong><span>riktige<br />av <span id="final-total">100</span> spørsmål</span></div>
+          <button class="restart-button" id="restart-button" type="button"><span aria-hidden="true">↻</span> Ta testen på nytt</button>
+        </section>
+      </section>
+
+      <footer class="page-footer">
+        <span>Ta det i ditt tempo.</span>
+        <span class="footer-mark" aria-hidden="true">LÆRING I SMÅ STEG</span>
+      </footer>
+    </main>
+  </body>
+</html>
