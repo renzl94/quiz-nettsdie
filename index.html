@@ -19,7 +19,34 @@
         <div class="topic-tag"><span class="topic-dot" aria-hidden="true"></span>HICO / S3000L</div>
       </header>
 
-      <section class="quiz" aria-labelledby="question-title">
+      <section class="quiz" aria-label="HICO-quiz">
+        <section class="course-picker" id="course-picker" aria-labelledby="course-title">
+          <p class="question-kicker">VELG NIVÅ</p>
+          <h1 id="course-title">Lær HICO, steg for steg.</h1>
+          <p class="course-intro">Velg et kurs for å øve på HICO og S3000L gjennom spørsmål, begreper og koblingsoppgaver.</p>
+          <div class="course-options" role="group" aria-label="Kursnivå">
+            <button class="course-option" type="button" data-course="easy">
+              <span class="course-number">01</span>
+              <span class="course-detail"><strong>Kurs 1</strong><span>Lett · grunnlaget</span></span>
+              <span class="course-total" id="easy-total">34 spørsmål</span>
+              <span class="course-arrow" aria-hidden="true">→</span>
+            </button>
+            <button class="course-option" type="button" data-course="medium">
+              <span class="course-number">02</span>
+              <span class="course-detail"><strong>Kurs 2</strong><span>Middels · sammenhenger</span></span>
+              <span class="course-total" id="medium-total">33 spørsmål</span>
+              <span class="course-arrow" aria-hidden="true">→</span>
+            </button>
+            <button class="course-option" type="button" data-course="hard">
+              <span class="course-number">03</span>
+              <span class="course-detail"><strong>Kurs 3</strong><span>Vanskelig · fordypning</span></span>
+              <span class="course-total" id="hard-total">33 spørsmål</span>
+              <span class="course-arrow" aria-hidden="true">→</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="quiz-session" id="quiz-session" aria-labelledby="question-title" hidden>
         <div class="quiz-meta">
           <span class="eyebrow" id="question-count">SPØRSMÅL 001 / 100</span>
           <span class="score-label">Riktige <strong id="score">0</strong></span>
@@ -33,6 +60,7 @@
           <p class="question-kicker" id="question-category">Solsystemet</p>
           <h1 id="question-title" tabindex="-1">Laster spørsmål …</h1>
           <div class="answers" id="answers" role="group" aria-labelledby="question-title"></div>
+          <button class="match-submit" id="match-submit" type="button" hidden>Sjekk koblingene <span aria-hidden="true">→</span></button>
           <div class="feedback" id="feedback" aria-live="polite" hidden>
             <span class="feedback-icon" id="feedback-icon" aria-hidden="true"></span>
             <div>
@@ -53,7 +81,11 @@
           <h1 id="result-title">Bra jobbet.</h1>
           <p class="result-copy" id="result-copy"></p>
           <div class="result-score"><strong id="final-score">0</strong><span>riktige<br />av <span id="final-total">100</span> spørsmål</span></div>
-          <button class="restart-button" id="restart-button" type="button"><span aria-hidden="true">↻</span> Ta testen på nytt</button>
+          <div class="result-actions">
+            <button class="restart-button" id="restart-button" type="button"><span aria-hidden="true">↻</span> Ta kurset på nytt</button>
+            <button class="return-button" id="return-button" type="button">Velg et annet kurs</button>
+          </div>
+        </section>
         </section>
       </section>
 
