@@ -3,91 +3,56 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#f4f5ef" />
-    <title>Spørsmål for spørsmål</title>
+    <meta name="theme-color" content="#f5f6f2" />
+    <meta name="description" content="Korte, praktiske moduler for å forstå HICO." />
+    <title>HICO · Spørsmål for spørsmål</title>
     <link rel="stylesheet" href="styles.css" />
-    <script src="curriculum.js" defer></script>
-    <script src="questions.js" defer></script>
-    <script src="learning-app.js" defer></script>
+    <script src="course-data.js" defer></script>
+    <script src="quiz-data.js" defer></script>
+    <script src="simple-app.js" defer></script>
   </head>
   <body>
-    <main class="page-shell">
-      <header class="topbar">
-        <a class="wordmark" href="./" aria-label="Spørsmål for spørsmål, startside">
-          <span class="wordmark-mark" aria-hidden="true">?</span>
-          <span>spørsmål<br />for spørsmål</span>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="brand" href="#modules" aria-label="HICO, velg modul">
+          <span class="brand-mark" aria-hidden="true">?</span>
+          <span>HICO</span>
         </a>
-        <div class="header-actions">
-          <div class="topic-tag"><span class="topic-dot" aria-hidden="true"></span>HICO / S3000L</div>
-          <button class="menu-button" id="course-menu" type="button" hidden><span aria-hidden="true">←</span> Kursoversikt</button>
-        </div>
       </header>
 
-      <section class="quiz" aria-label="HICO-quiz">
-        <section class="course-picker" id="course-picker" aria-labelledby="course-title">
-          <p class="question-kicker">LÆRINGSLØP · 10 KURS</p>
-          <h1 id="course-title">Lær HICO, steg for steg.</h1>
-          <p class="course-intro">Begynn med grunnbegrepene. Bygg forståelse før du bruker den i mer krevende situasjoner.</p>
-          <div class="course-options" id="course-options" role="list" aria-label="HICO-kurs"></div>
-        </section>
-
-        <section class="quiz-session" id="quiz-session" aria-labelledby="question-title" hidden>
-        <section class="lesson-screen" id="lesson-screen" aria-labelledby="lesson-title" hidden>
-          <button class="back-link" id="lesson-back" type="button"><span aria-hidden="true">←</span> Alle kurs</button>
-          <p class="question-kicker" id="lesson-eyebrow"></p>
-          <h1 id="lesson-title"></h1>
-          <p class="lesson-summary" id="lesson-summary"></p>
-          <div class="concept-list" id="concept-list"></div>
-          <button class="next-button lesson-start" id="start-lesson" type="button"><span>Start grunnprøven</span><span aria-hidden="true">→</span></button>
-        </section>
-
-        <div class="quiz-meta">
-          <span class="eyebrow" id="question-count">OPPGAVE 01 / 10</span>
-          <span class="score-label">Poeng <strong id="score">0</strong></span>
-        </div>
-
-          <div class="progress-track" role="progressbar" aria-label="Framdrift" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0">
-          <span class="progress-fill" id="progress-fill"></span>
-        </div>
-
-        <div class="question-content" id="question-content">
-          <p class="question-kicker" id="question-category">Solsystemet</p>
-          <h1 id="question-title" tabindex="-1">Laster spørsmål …</h1>
-          <div class="answers" id="answers" role="group" aria-labelledby="question-title"></div>
-          <button class="match-submit" id="match-submit" type="button" hidden>Sjekk koblingene <span aria-hidden="true">→</span></button>
-          <div class="feedback" id="feedback" aria-live="polite" hidden>
-            <span class="feedback-icon" id="feedback-icon" aria-hidden="true"></span>
-            <div>
-              <p class="feedback-title" id="feedback-title"></p>
-              <p class="feedback-copy" id="feedback-copy"></p>
-            </div>
+      <main>
+        <section class="screen module-screen" id="module-screen">
+          <div class="home-heading">
+            <h1>Velg modul</h1>
           </div>
-          <div class="question-footer">
-            <span class="keyboard-hint"><kbd>1</kbd>–<kbd>4</kbd> velg svar</span>
-            <button class="previous-button" id="previous-button" type="button"><span aria-hidden="true">←</span> Tilbake</button>
-            <button class="next-button" id="next-button" type="button" hidden>
-              <span id="next-label">Neste spørsmål</span><span aria-hidden="true">→</span>
-            </button>
-          </div>
-        </div>
-
-        <section class="results" id="results" aria-live="polite" hidden>
-          <p class="question-kicker">RUNDE FERDIG</p>
-          <h1 id="result-title">Bra jobbet.</h1>
-          <p class="result-copy" id="result-copy"></p>
-          <div class="result-score"><strong id="final-score">0</strong><span>poeng<br />av <span id="final-total">10</span> mulige</span></div>
-          <div class="result-actions">
-            <button class="restart-button" id="restart-button" type="button"><span aria-hidden="true">↻</span> Ta kurset på nytt</button>
-              <button class="return-button" id="return-button" type="button">Velg et annet kurs</button>
-          </div>
+          <div class="module-heading"><span id="module-count">0 / 3</span></div>
+          <div class="module-grid" id="module-grid" aria-label="HICO-moduler"></div>
         </section>
-        </section>
-      </section>
 
-      <footer class="page-footer">
-        <span>Ta det i ditt tempo.</span>
-        <span class="footer-mark" aria-hidden="true">LÆRING I SMÅ STEG</span>
-      </footer>
-    </main>
+        <section class="screen question-screen" id="question-screen" hidden>
+          <button class="back-link" id="question-back-to-modules" type="button"><span aria-hidden="true">←</span> Moduler</button>
+          <div class="question-meta"><span id="question-position">SPØRSMÅL 1 / 6</span><span id="question-score">0 riktige</span></div>
+          <div class="progress-track question-progress" aria-label="Framdrift"><i id="question-progress-fill"></i></div>
+          <p class="eyebrow question-type" id="question-type">GRUNNLEGGENDE</p>
+          <h1 class="question-title" id="question-title"></h1>
+          <p class="question-concepts" id="question-concepts"></p>
+          <div class="answer-list" id="answer-list" role="group" aria-labelledby="question-title"></div>
+          <div class="answer-context" id="answer-context" hidden aria-live="polite"><span class="context-icon" id="context-icon"></span><div><strong id="context-title">HVORFOR?</strong><p id="context-copy"></p></div></div>
+          <div class="question-actions"><button class="secondary-button" id="previous-question" type="button"><span aria-hidden="true">←</span> Forrige</button><span class="save-note">Svar lagres på denne enheten</span><button class="primary-button" id="next-question" type="button" disabled>Neste <span aria-hidden="true">→</span></button></div>
+        </section>
+
+        <section class="screen result-screen" id="result-screen" hidden>
+          <button class="back-link" id="result-back" type="button"><span aria-hidden="true">←</span> Modulene</button>
+          <p class="eyebrow">MODUL FERDIG</p>
+          <h1 id="result-title">Godt jobbet.</h1>
+          <p class="lead" id="result-copy"></p>
+          <div class="result-score"><strong id="result-score">0 / 0</strong><span>riktige svar</span></div>
+          <div class="takeaway"><p class="eyebrow">HUSK</p><p id="result-takeaway"></p></div>
+          <div class="result-actions"><button class="secondary-button" id="retry-module" type="button">Ta modulen på nytt</button><button class="primary-button" id="continue-module" type="button">Neste modul <span aria-hidden="true">→</span></button></div>
+        </section>
+      </main>
+
+      <footer class="site-footer"><span>Ikke passiv læring – men aktiv</span><span>Made by Terje</span></footer>
+    </div>
   </body>
 </html>
