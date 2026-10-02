@@ -6,8 +6,9 @@
     <meta name="theme-color" content="#f4f5ef" />
     <title>Spørsmål for spørsmål</title>
     <link rel="stylesheet" href="styles.css" />
+    <script src="curriculum.js" defer></script>
     <script src="questions.js" defer></script>
-    <script src="app.js" defer></script>
+    <script src="learning-app.js" defer></script>
   </head>
   <body>
     <main class="page-shell">
@@ -16,43 +17,36 @@
           <span class="wordmark-mark" aria-hidden="true">?</span>
           <span>spørsmål<br />for spørsmål</span>
         </a>
-        <div class="topic-tag"><span class="topic-dot" aria-hidden="true"></span>HICO / S3000L</div>
+        <div class="header-actions">
+          <div class="topic-tag"><span class="topic-dot" aria-hidden="true"></span>HICO / S3000L</div>
+          <button class="menu-button" id="course-menu" type="button" hidden><span aria-hidden="true">←</span> Kursoversikt</button>
+        </div>
       </header>
 
       <section class="quiz" aria-label="HICO-quiz">
         <section class="course-picker" id="course-picker" aria-labelledby="course-title">
-          <p class="question-kicker">VELG NIVÅ</p>
+          <p class="question-kicker">LÆRINGSLØP · 10 KURS</p>
           <h1 id="course-title">Lær HICO, steg for steg.</h1>
-          <p class="course-intro">Velg et kurs for å øve på HICO og S3000L gjennom spørsmål, begreper og koblingsoppgaver.</p>
-          <div class="course-options" role="group" aria-label="Kursnivå">
-            <button class="course-option" type="button" data-course="easy">
-              <span class="course-number">01</span>
-              <span class="course-detail"><strong>Kurs 1</strong><span>Lett · grunnlaget</span></span>
-              <span class="course-total" id="easy-total">34 spørsmål</span>
-              <span class="course-arrow" aria-hidden="true">→</span>
-            </button>
-            <button class="course-option" type="button" data-course="medium">
-              <span class="course-number">02</span>
-              <span class="course-detail"><strong>Kurs 2</strong><span>Middels · sammenhenger</span></span>
-              <span class="course-total" id="medium-total">33 spørsmål</span>
-              <span class="course-arrow" aria-hidden="true">→</span>
-            </button>
-            <button class="course-option" type="button" data-course="hard">
-              <span class="course-number">03</span>
-              <span class="course-detail"><strong>Kurs 3</strong><span>Vanskelig · fordypning</span></span>
-              <span class="course-total" id="hard-total">33 spørsmål</span>
-              <span class="course-arrow" aria-hidden="true">→</span>
-            </button>
-          </div>
+          <p class="course-intro">Begynn med grunnbegrepene. Bygg forståelse før du bruker den i mer krevende situasjoner.</p>
+          <div class="course-options" id="course-options" role="list" aria-label="HICO-kurs"></div>
         </section>
 
         <section class="quiz-session" id="quiz-session" aria-labelledby="question-title" hidden>
+        <section class="lesson-screen" id="lesson-screen" aria-labelledby="lesson-title" hidden>
+          <button class="back-link" id="lesson-back" type="button"><span aria-hidden="true">←</span> Alle kurs</button>
+          <p class="question-kicker" id="lesson-eyebrow"></p>
+          <h1 id="lesson-title"></h1>
+          <p class="lesson-summary" id="lesson-summary"></p>
+          <div class="concept-list" id="concept-list"></div>
+          <button class="next-button lesson-start" id="start-lesson" type="button"><span>Start grunnprøven</span><span aria-hidden="true">→</span></button>
+        </section>
+
         <div class="quiz-meta">
-          <span class="eyebrow" id="question-count">SPØRSMÅL 001 / 100</span>
-          <span class="score-label">Riktige <strong id="score">0</strong></span>
+          <span class="eyebrow" id="question-count">OPPGAVE 01 / 10</span>
+          <span class="score-label">Poeng <strong id="score">0</strong></span>
         </div>
 
-        <div class="progress-track" role="progressbar" aria-label="Framdrift" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="progress-track" role="progressbar" aria-label="Framdrift" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0">
           <span class="progress-fill" id="progress-fill"></span>
         </div>
 
@@ -70,6 +64,7 @@
           </div>
           <div class="question-footer">
             <span class="keyboard-hint"><kbd>1</kbd>–<kbd>4</kbd> velg svar</span>
+            <button class="previous-button" id="previous-button" type="button"><span aria-hidden="true">←</span> Tilbake</button>
             <button class="next-button" id="next-button" type="button" hidden>
               <span id="next-label">Neste spørsmål</span><span aria-hidden="true">→</span>
             </button>
@@ -80,10 +75,10 @@
           <p class="question-kicker">RUNDE FERDIG</p>
           <h1 id="result-title">Bra jobbet.</h1>
           <p class="result-copy" id="result-copy"></p>
-          <div class="result-score"><strong id="final-score">0</strong><span>riktige<br />av <span id="final-total">100</span> spørsmål</span></div>
+          <div class="result-score"><strong id="final-score">0</strong><span>poeng<br />av <span id="final-total">10</span> mulige</span></div>
           <div class="result-actions">
             <button class="restart-button" id="restart-button" type="button"><span aria-hidden="true">↻</span> Ta kurset på nytt</button>
-            <button class="return-button" id="return-button" type="button">Velg et annet kurs</button>
+              <button class="return-button" id="return-button" type="button">Velg et annet kurs</button>
           </div>
         </section>
         </section>
