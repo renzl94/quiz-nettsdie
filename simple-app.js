@@ -154,7 +154,7 @@ function explainMatchedFact(fact, answer) {
   const glossaryEntry = handbook.glossary.find(([term]) => normalize(term) === normalize(fact.term));
   if (glossaryEntry && (fact.term === 'ASD' || isDefinitionRepeated(answer, fact.text))) {
     const [, , usage, connected] = glossaryEntry;
-    return `Brukes til: ${usage} Koblet til: ${connected}.`;
+    return `${fact.term}: ${usage} Kobles videre til ${connected}.`;
   }
   return trimExplanation(fact.text);
 }
